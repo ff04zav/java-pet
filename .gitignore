@@ -26,6 +26,10 @@ hs_err_pid*
 .metadata
 .classpath
 .project
+.gitignore
+.gitattributes
+gradlew
+gradlew.bat
 Eclipse-pet/.gitignore
 Eclipse-pet/FirstEclipse/.gitignore
 bin/
