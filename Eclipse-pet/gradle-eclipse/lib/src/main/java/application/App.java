@@ -6,22 +6,18 @@ import java.sql.SQLException;
 public class App {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		int[] ids = {0, 1, 2};
+		int[] ids = {3, 4, 5};
 		String[] names = {"Sue", "Bob", "Charley"};
 		
-		Class.forName("org.sqlite.JDBC");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		
-		String dbUrl = "jdbc:sqlite:people.db";
+		String dbUrl = "jdbc:mysql://localhost:3306/people?serverTimezone=UTC";
 		
-		var conn = DriverManager.getConnection(dbUrl);
+		var conn = DriverManager.getConnection(dbUrl, "user", "user");
 		conn.setAutoCommit(false);
 		String sql;
 		var stmt = conn.createStatement();
 		try {
-			sql = "create table if not exists user (id integer primary key, name text not null)";
-			
-			stmt.execute(sql);
-			
 			sql = "insert into user (id, name) values (?, ?)";
 			var insertStmt = conn.prepareStatement(sql);
 			
@@ -43,12 +39,8 @@ public class App {
 				System.out.println(id + ": " + name);
 			}
 		} catch (Exception e) {
-			System.err.println(e);
+			e.printStackTrace();
 		} finally {
-			sql = "drop table user";
-			
-			stmt.execute(sql);
-			conn.commit();
 			conn.close();
 		}
 	}

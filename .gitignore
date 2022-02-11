@@ -32,6 +32,7 @@ gradlew
 gradlew.bat
 Eclipse-pet/.gitignore
 Eclipse-pet/FirstEclipse/.gitignore
+Eclipse-pet/mysql/.gitignore
 bin/
 tmp/
 *.tmp
