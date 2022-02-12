@@ -12,6 +12,11 @@ public class User {
 	}
 
 
+	public User(String name) {
+		super();
+		this.name = name;
+	}
+	
 	public User(int id) {
 		super();
 		this.id = id;
@@ -24,6 +29,12 @@ public class User {
 	public void setId(int id) {
 		this.id = id;
 	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + "]";
+	}
+
+
 	public String getName() {
 		return name;
 	}
