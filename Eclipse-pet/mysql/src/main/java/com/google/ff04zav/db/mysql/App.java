@@ -12,7 +12,7 @@ public class App
 {
     public static void main( String[] args )
     {
-    	Properties props = new Profile().getProperties("db"); 
+    	Properties props = Profile.getProperties("db"); 
         var db = Database.instance();
         try {
 			db.connect(props);

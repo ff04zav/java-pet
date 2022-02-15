@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Profile {
-	public Properties getProperties(String name) throws RuntimeException {
+	public static Properties getProperties(String name) throws RuntimeException {
 		Properties props = new Properties();
     	String env = System.getProperty("env");
     	if (env == null) {
